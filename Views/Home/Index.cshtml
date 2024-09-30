@@ -1,0 +1,26 @@
+﻿@using DomainLookup.Models.Entities
+@model WhoisDomainInfo?
+
+@{
+    ViewData["Title"] = "Domain Availability Checker";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @if (Model != null)
+    {
+        @Html.Raw($"Domain {Model.Domain} (TLD: {Model.Tld}) is{(Model.IsAvailable ? "" : " not")} available for registration.")
+    }
+
+</div>
+
+<form>
+    <div class="mb-3">
+        <label for="domainName" class="form-label">Domain name</label>
+        <input type="text" required="1" class="form-control" id="domainName" name="domainName" placeholder="google.com">
+        <div class="d-grid gap-2">
+
+            <input type="submit" value="Check Domain" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
